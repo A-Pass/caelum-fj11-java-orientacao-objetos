@@ -1,4 +1,4 @@
-class Exercicio3_13_4 {
+class C3_13Exercicio4 {
 	public static void main(String[] args) {
 		long fatorial = 1;
 		for(int n = 1; n <= 40; n++) {

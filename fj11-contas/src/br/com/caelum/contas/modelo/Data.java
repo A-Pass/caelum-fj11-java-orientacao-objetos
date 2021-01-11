@@ -1,3 +1,5 @@
+package br.com.caelum.contas.modelo;
+
 class Data {
     private int dia;
     private int mes;

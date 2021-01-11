@@ -1,3 +1,5 @@
+*.class
+
 # Eclipse IDE
 fj11-contas/.classpath
 fj11-contas/.project
