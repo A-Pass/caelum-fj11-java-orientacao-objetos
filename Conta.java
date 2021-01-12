@@ -1,7 +1,7 @@
 // Capítulo 4
 class Conta {
     int numero;
-    Conta titular;
+    Conta titular = new Cliente();
     double saldo;
 
     boolean saca(double valor) {
@@ -17,7 +17,7 @@ class Conta {
         this.saldo += quantidade;
     }
 
-    boolean transfere(Conta conta, double valor) {
+    boolean transfere(Conta destino, double valor) {
         boolean retirou = this.saca(valor);
         if(retirou == false) {
             return false;
