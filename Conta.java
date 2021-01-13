@@ -1,7 +1,7 @@
 // Capítulo 4
 class Conta {
     int numero;
-    Conta titular = new Cliente();
+    Cliente titular = new Cliente();
     double saldo;
 
     boolean saca(double valor) {
