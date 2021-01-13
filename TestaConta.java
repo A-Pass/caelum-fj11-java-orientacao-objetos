@@ -8,13 +8,13 @@ class TestaConta {
 
         conta.agencia = "1234-5";
 
-        conta.dataAbertura = new Data();
+        conta.dataDeAbertura = new Data();
 
-        conta.dataAbertura.dia = 6;
+        conta.dataDeAbertura.dia = 6;
 
-        conta.dataAbertura.mes = 1;
+        conta.dataDeAbertura.mes = 1;
 
-        conta.dataAbertura.ano = 2021;
+        conta.dataDeAbertura.ano = 2021;
 
         conta.deposita(300);
 

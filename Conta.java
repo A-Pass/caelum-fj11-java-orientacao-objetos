@@ -1,8 +1,11 @@
 // Capítulo 4
 class Conta {
     int numero;
-    Cliente titular = new Cliente();
+    String agencia;
+    //Cliente titular = new Cliente();
+    String titular;
     double saldo;
+    Data dataDeAbertura;
 
     boolean saca(double valor) {
         if(valor > this.saldo) {
@@ -26,5 +29,20 @@ class Conta {
             destino.deposita(valor);
             return true;
         }
+    }
+
+    double calculaRendimento() {
+        return 0.0;
+    }
+
+    String recuperarDadosParaImpressao() {
+        String dados = "Titular: " + this.titular;
+        dados += "\nData de abertura: " + this.dataDeAbertura.formatada();
+        dados += "\nAgência: " + this.agencia;
+        dados += "\nNúmero: " + this.numero;
+        dados += "\nSaldo: " + this.saldo;
+        dados += "\nRendimentos: " + this.calculaRendimento();
+
+        return dados;
     }
 }
