@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"br.com.caelum.contas.main"},{"l":"br.com.caelum.contas.modelo"}];updateSearchResults();
