@@ -1,6 +1,6 @@
 package br.com.caelum.contas.modelo;
 
-public class Gerente extends Funcionario {
+public class Gerente extends Funcionario implements Autenticavel {
 	private int senha;
 	private int numeroDeFuncionariosGerenciados;
 	
