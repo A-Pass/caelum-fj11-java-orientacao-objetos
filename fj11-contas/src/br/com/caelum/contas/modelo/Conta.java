@@ -10,8 +10,8 @@ package br.com.caelum.contas.modelo;
  * @author anderson
  *
  */
-public class Conta {
-	private double saldo;
+public abstract class Conta {
+	protected double saldo;
 	private String titular;
 	private int numero;
 	private String agencia;
@@ -96,5 +96,31 @@ public class Conta {
 	 */
 	public double getSaldo() {
 		return this.saldo;
+	}
+
+	/**
+	 * Obtém o tipo da conta
+	 * 
+	 * @return
+	 */
+	public abstract String getTipo();
+	
+	/**
+	 * Transfere um valar para outra conta
+	 * @param valor
+	 * @param conta
+	 */
+	public void transfere(double valor, Conta conta) {
+		this.saca(valor);
+		conta.deposita(valor);
+	}
+	
+	public String recuperaDadosParaImpressao() {
+		String dados = "Titular: " + this.getTitular();
+		dados += "\nNúmero: " + this.getNumero();
+		dados += "\nAgência " + this.getAgencia();
+		dados += "\nSaldo: R$ " + this.getSaldo();
+		dados += "\nTipo: " + this.getTipo();
+		return dados;
 	}
 }
