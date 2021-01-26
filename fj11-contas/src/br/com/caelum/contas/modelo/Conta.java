@@ -1,5 +1,7 @@
 package br.com.caelum.contas.modelo;
 
+import java.security.InvalidParameterException;
+
 /**
  * Classe que define uma conta bancária
  * 
@@ -22,6 +24,9 @@ public abstract class Conta {
 	 * @param valor
 	 */
 	public void deposita(double valor) {
+		if (valor < 0) {
+			throw new IllegalArgumentException("Você tentou depositar um valor negativo!");
+		}
 		this.saldo += valor;
 	}
 
@@ -83,10 +88,16 @@ public abstract class Conta {
 	 * Retira um valor da conta
 	 * 
 	 * @param valor
+	 * @throws SaldoInsuficienteException
 	 */
-	public void saca(double valor) {
-		if (0 < valor && valor <= this.saldo)
-			this.saldo -= valor;
+	public void saca(double valor) throws SaldoInsuficienteException {
+		if (valor < 0)
+			throw new InvalidParameterException("Você tentou sacar um valor negativo!");
+
+		if (this.saldo < valor)
+			throw new SaldoInsuficienteException(valor);
+
+		this.saldo -= valor;
 	}
 
 	/**
@@ -104,17 +115,19 @@ public abstract class Conta {
 	 * @return
 	 */
 	public abstract String getTipo();
-	
+
 	/**
 	 * Transfere um valar para outra conta
+	 * 
 	 * @param valor
 	 * @param conta
+	 * @throws SaldoInsuficienteException 
 	 */
-	public void transfere(double valor, Conta conta) {
+	public void transfere(double valor, Conta conta) throws SaldoInsuficienteException {
 		this.saca(valor);
 		conta.deposita(valor);
 	}
-	
+
 	public String recuperaDadosParaImpressao() {
 		String dados = "Titular: " + this.getTitular();
 		dados += "\nNúmero: " + this.getNumero();
