@@ -121,7 +121,7 @@ public abstract class Conta {
 	 * 
 	 * @param valor
 	 * @param conta
-	 * @throws SaldoInsuficienteException 
+	 * @throws SaldoInsuficienteException
 	 */
 	public void transfere(double valor, Conta conta) throws SaldoInsuficienteException {
 		this.saca(valor);
@@ -135,5 +135,20 @@ public abstract class Conta {
 		dados += "\nSaldo: R$ " + this.getSaldo();
 		dados += "\nTipo: " + this.getTipo();
 		return dados;
+	}
+
+	@Override
+	public String toString() {
+		return "[Titular: " + this.titular.toUpperCase() + ", Número: " + this.numero + ", Agência: " + this.agencia + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+
+		Conta conta = (Conta) obj;
+
+		return conta.numero == this.numero && conta.agencia == this.agencia;
 	}
 }
