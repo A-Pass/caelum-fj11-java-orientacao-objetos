@@ -14,7 +14,7 @@ import br.com.caelum.contas.modelo.ContaCorrente;
 public class TestaBanco {
 
 	public static void main(String[] args) {
-		// Subcapítulo 14.6 - Exercício 6 
+		// Subcapítulo 14.5 - Exercício 6 
 		
 		Banco banco = new Banco("B. A-Pass", 1);
 		
@@ -29,7 +29,7 @@ public class TestaBanco {
 			banco.adiciona(conta);
 		}
 		
-		// Subcapítulo 14.7
+		// Subcapítulo 14.5 - Exercício 7
 		banco.mostraContas();
 	}
 

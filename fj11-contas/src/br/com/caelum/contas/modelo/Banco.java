@@ -38,7 +38,8 @@ public class Banco {
 		for(int i = 0; i < contas.length; i++) {
 			if(contas[i] != null) {
 				System.out.println("Conta na posição " + i);
-				System.out.println(contas[i].recuperaDadosParaImpressao());
+				//System.out.println(contas[i].recuperaDadosParaImpressao());
+				System.out.println(contas[i]);
 				System.out.println("----------");
 			}
 		}
