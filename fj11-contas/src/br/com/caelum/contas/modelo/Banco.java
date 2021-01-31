@@ -1,5 +1,7 @@
 package br.com.caelum.contas.modelo;
 
+import java.util.Iterator;
+
 public class Banco {
 
 	private String nome;
@@ -20,4 +22,25 @@ public class Banco {
 		return numero;
 	}
 
+	public void adiciona(Conta conta) {
+		if(contas[contas.length - 1] != null)
+			throw new RuntimeException("Array de contas cheio!");
+			
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] == null) {
+				contas[i] = conta;
+				break;
+			}
+		}
+	}
+	
+	public void mostraContas() {
+		for(int i = 0; i < contas.length; i++) {
+			if(contas[i] != null) {
+				System.out.println("Conta na posição " + i);
+				System.out.println(contas[i].recuperaDadosParaImpressao());
+				System.out.println("----------");
+			}
+		}
+	}
 }
