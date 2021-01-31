@@ -24,13 +24,20 @@ public class TestaBanco {
 			conta = new ContaCorrente();
 			conta.setTitular("Titular " + i);
 			conta.setNumero(i);
-			conta.setAgencia("1000");
+			conta.setAgencia(""+(1000 + i));
 			conta.deposita(i * 1000 + 1000);
 			banco.adiciona(conta);
 		}
 		
-		// Subcapítulo 14.5 - Exercício 7
+		// Subcapítulo 14.5 - Exercício 7, 8
 		banco.mostraContas();
+		
+		
+		// Subca[pitulo 15.5 - Exercício 9
+		conta = new ContaCorrente();
+		conta.setNumero(1);
+		conta.setAgencia("1001");
+		System.out.println("Existe conta Agência: " + conta.getAgencia() + ", Número: " + conta.getNumero() + " ? " + (banco.contem(conta) ? "Sim" : "Não"));
 	}
 
 }

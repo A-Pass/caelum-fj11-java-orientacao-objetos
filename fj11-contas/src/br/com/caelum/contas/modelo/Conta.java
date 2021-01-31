@@ -36,7 +36,7 @@ public abstract class Conta {
 	 * @return
 	 */
 	public String getTitular() {
-		return titular;
+		return this.titular;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public abstract class Conta {
 	 * @return
 	 */
 	public int getNumero() {
-		return numero;
+		return this.numero;
 	}
 
 	/**
@@ -72,7 +72,7 @@ public abstract class Conta {
 	 * @return
 	 */
 	public String getAgencia() {
-		return agencia;
+		return this.agencia;
 	}
 
 	/**
@@ -149,6 +149,6 @@ public abstract class Conta {
 
 		Conta conta = (Conta) obj;
 
-		return conta.numero == this.numero && conta.agencia == this.agencia;
+		return conta.numero == this.numero && conta.agencia.equals(this.agencia);
 	}
 }

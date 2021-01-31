@@ -44,4 +44,14 @@ public class Banco {
 			}
 		}
 	}
+	
+	public boolean contem(Conta conta) {
+		for(int i=0; i < this.contas.length; i++) {
+			if(conta.equals(this.contas[i])) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }
