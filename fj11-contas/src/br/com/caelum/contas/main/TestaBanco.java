@@ -20,7 +20,7 @@ public class TestaBanco {
 		
 		Conta conta;
 		
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 15; i++) {
 			conta = new ContaCorrente();
 			conta.setTitular("Titular " + i);
 			conta.setNumero(i);

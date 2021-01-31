@@ -23,13 +23,19 @@ public class Banco {
 	}
 
 	public void adiciona(Conta conta) {
-		if(contas[contas.length - 1] != null)
-			throw new RuntimeException("Array de contas cheio!");
-			
-		for (int i = 0; i < contas.length; i++) {
-			if (contas[i] == null) {
-				contas[i] = conta;
-				break;
+		if(contas[contas.length - 1] != null) {
+			//throw new RuntimeException("Array de contas cheio!");
+			Conta[] contas = new Conta[this.contas.length+10];
+			contas[this.contas.length] = conta;
+			for(int i = 0; i < this.contas.length; i++)
+				contas[i] = this.contas[i];
+			this.contas = contas;
+		} else {
+			for (int i = 0; i < contas.length; i++) {
+				if (contas[i] == null) {
+					contas[i] = conta;
+					break;
+				}
 			}
 		}
 	}
