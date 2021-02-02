@@ -143,13 +143,31 @@ public abstract class Conta implements Comparable<Conta> {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((agencia == null) ? 0 : agencia.hashCode());
+		result = prime * result + numero;
+		return result;
+	}
+
+	@Override
 	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
 		if (obj == null)
 			return false;
-
-		Conta conta = (Conta) obj;
-
-		return conta.numero == this.numero && conta.agencia.equals(this.agencia);
+		if (getClass() != obj.getClass())
+			return false;
+		Conta other = (Conta) obj;
+		if (agencia == null) {
+			if (other.agencia != null)
+				return false;
+		} else if (!agencia.equals(other.agencia))
+			return false;
+		if (numero != other.numero)
+			return false;
+		return true;
 	}
 	
 	@Override

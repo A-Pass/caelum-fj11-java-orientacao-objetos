@@ -1,17 +1,24 @@
 package br.com.caelum.contas.modelo;
 
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Banco {
 
 	private String nome;
 	private int numero;
-	private Conta[] contas;
-
+	
+	private List<Conta> contas;
+	private Map<String, Conta> contasPorTitular;
+	
 	public Banco(String nome, int numero) {
 		this.nome = nome;
 		this.numero = numero;
-		this.contas = new Conta[10];
+		this.contas = new ArrayList<>();
+		this.contasPorTitular = new HashMap<>();
 	}
 
 	public String getNome() {
@@ -23,41 +30,42 @@ public class Banco {
 	}
 
 	public void adiciona(Conta conta) {
-		if(contas[contas.length - 1] != null) {
-			//throw new RuntimeException("Array de contas cheio!");
-			Conta[] contas = new Conta[this.contas.length+10];
-			contas[this.contas.length] = conta;
-			for(int i = 0; i < this.contas.length; i++)
-				contas[i] = this.contas[i];
-			this.contas = contas;
-		} else {
-			for (int i = 0; i < contas.length; i++) {
-				if (contas[i] == null) {
-					contas[i] = conta;
-					break;
-				}
-			}
-		}
+		this.contasPorTitular.put(conta.getTitular(), conta);
+		this.contas.add(conta);
+	}
+
+	public Conta pega(int x) {
+		return this.contas.get(x);
+	}
+
+	public int pegaQuantidadeDeContas() {
+		return this.contas.size();
+	}
+	
+	public Conta buscaPorTitular(String titular) {
+		return this.contasPorTitular.get(titular);
 	}
 	
 	public void mostraContas() {
-		for(int i = 0; i < contas.length; i++) {
-			if(contas[i] != null) {
+		int total = this.contas.size();
+		for (int i = 0; i < total; i++) {
+			if (contas.get(i) != null) {
 				System.out.println("Conta na posição " + i);
-				//System.out.println(contas[i].recuperaDadosParaImpressao());
-				System.out.println(contas[i]);
+				System.out.println(contas.get(i));
 				System.out.println("----------");
 			}
 		}
 	}
-	
+
 	public boolean contem(Conta conta) {
-		for(int i=0; i < this.contas.length; i++) {
-			if(conta.equals(this.contas[i])) {
+		int total = this.contas.size();
+
+		for (int i = 0; i < total; i++) {
+			if (conta.equals(this.contas.get(i))) {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 }
