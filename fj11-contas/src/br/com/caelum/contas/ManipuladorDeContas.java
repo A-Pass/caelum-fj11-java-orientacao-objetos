@@ -1,11 +1,13 @@
 package br.com.caelum.contas;
 
+import java.util.Collections;
+import java.util.List;
+
 import br.com.caelum.contas.modelo.Conta;
 import br.com.caelum.contas.modelo.ContaCorrente;
 import br.com.caelum.contas.modelo.ContaPoupanca;
 import br.com.caelum.contas.modelo.SaldoInsuficienteException;
 import br.com.caelum.javafx.api.util.Evento;
-import javafx.event.Event;
 
 public class ManipuladorDeContas {
 	private Conta conta;
@@ -45,5 +47,19 @@ public class ManipuladorDeContas {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void ordenaLista(Evento evento) {
+		List<Conta> contas = evento.getLista("destino");
+		Collections.sort(contas);
+		
+		// Ordem inversa
+		//Collections.reverse(contas);
+		
+		// Embaralha elementos
+		//Collections.suffle(contas);
+		
+		// Rotaciona Elementos
+		//Collections.rotate(contas, 1);
 	}
 }

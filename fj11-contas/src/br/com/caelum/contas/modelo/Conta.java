@@ -12,7 +12,7 @@ import java.security.InvalidParameterException;
  * @author anderson
  *
  */
-public abstract class Conta {
+public abstract class Conta implements Comparable<Conta> {
 	protected double saldo;
 	private String titular;
 	private int numero;
@@ -150,5 +150,10 @@ public abstract class Conta {
 		Conta conta = (Conta) obj;
 
 		return conta.numero == this.numero && conta.agencia.equals(this.agencia);
+	}
+	
+	@Override
+	public int compareTo(Conta conta) {
+		return this.titular.compareTo(conta.titular);
 	}
 }
