@@ -62,4 +62,14 @@ public class ManipuladorDeContas {
 		// Rotaciona Elementos
 		//Collections.rotate(contas, 1);
 	}
+	
+	public void salvaDados(Evento evento) { 
+		List<Conta> contas = evento.getLista("listaContas");
+		RepositorioDeContas repositorio = new RepositorioDeContas();
+		repositorio.salva(contas);	
+	}
+	
+	public List<Conta> carregaDados() {
+		return new RepositorioDeContas().carrega();
+	}
 }
