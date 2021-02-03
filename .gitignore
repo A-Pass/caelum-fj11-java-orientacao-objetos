@@ -1,6 +1,11 @@
+.bin
 *.class
 
 # Eclipse IDE
+.classpath
+.project
+.settings/
+
 fj11-contas/.classpath
 fj11-contas/.project
 fj11-contas/.settings/
@@ -8,7 +13,7 @@ fj11-contas/.settings/
 conta-interface/.classpath
 conta-interface/.project
 conta-interface/.settings/
-/bin/
+
 
 C14_7Exercicio2/.classpath
 C14_7Exercicio2/.project
